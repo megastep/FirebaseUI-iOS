@@ -23,18 +23,22 @@ public struct SignedInView {
   @State private var showEmailVerificationSent = false
   @State private var reauthCoordinator = ReauthenticationCoordinator()
 
+  /// Indicates whether the signed-in screen should show the MFA management action.
   private var showsMfaManagementButton: Bool {
     Self.showsMfaManagementButton(configuration: authService.configuration)
   }
 
+  /// Indicates whether the signed-in screen should show the delete account action.
   private var showsDeleteAccountButton: Bool {
     Self.showsDeleteAccountButton(configuration: authService.configuration)
   }
 
+  /// Returns whether MFA management should be available for the provided configuration.
   static func showsMfaManagementButton(configuration: AuthConfiguration) -> Bool {
     configuration.mfaEnabled
   }
 
+  /// Returns whether account deletion should be available for the provided configuration.
   static func showsDeleteAccountButton(configuration: AuthConfiguration) -> Bool {
     switch configuration.deleteAccountButtonAction {
     case .hidden:

@@ -16,6 +16,7 @@
 import Testing
 
 @Suite("SignedInView Tests")
+@MainActor
 struct SignedInViewTests {
   @Test("MFA management button is hidden when MFA is disabled")
   func mfaManagementButtonHiddenWhenMfaDisabled() {
